@@ -9,7 +9,7 @@ module.exports = {
         parser: "flow",
         semi: true,
         trailingComma: "es5",
-        endOfLine: "auto",
+        endOfLine: "",
       },
     ],
   },
