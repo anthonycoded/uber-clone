@@ -1,13 +1,16 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Redirect } from "expo-router";
+import { useAuth } from "@clerk/clerk-expo";
 
 const index = () => {
-  return (
-    <SafeAreaView>
-      <Text>index</Text>
-    </SafeAreaView>
-  );
+  const { isSignedIn } = useAuth();
+
+  if (isSignedIn) {
+    return <Redirect href={"/(root)/(tabs)/home"} />;
+  }
+  return <Redirect href="/(auth)/welcome" />;
 };
 export default index;
 const styles = StyleSheet.create({
